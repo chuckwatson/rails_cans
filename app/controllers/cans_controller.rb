@@ -1,8 +1,10 @@
 class CansController < ApplicationController
   def new
+    @can = Can.new
   end
 
   def create
+    @can = Can.new(can_params)
   end
 
   def update
@@ -15,8 +17,14 @@ class CansController < ApplicationController
   end
 
   def index
+    @cans = Can.all
   end
 
   def show
+  end
+
+
+  def can_params
+    params.require(:can).permit(:name, :abv)
   end
 end

@@ -1,2 +1,13 @@
 <h1>Cans#new</h1>
 <p>Find me in app/views/cans/new.html.erb</p>
+
+<%= simple_form_for @can do |f| %>
+<%= f.label :name, "name" %>
+<%= f.text_field :name %>
+<%= f.label :abv, "abv %" %>
+<%= f.number_field :abv %>
+<%= f.association :brewery %>
+<%= f.association :hop %>
+<%= f.input :photo, as: :file %>
+<%= f.button :submit %>
+<% end %>

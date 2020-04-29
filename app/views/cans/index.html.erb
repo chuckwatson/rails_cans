@@ -1,2 +1,12 @@
-<h1>Cans#index</h1>
-<p>Find me in app/views/cans/index.html.erb</p>
+<h1>Cans</h1>
+
+
+<% @cans.each do |can| %>
+  <%= link_to can_path(can) %>
+  <%= cl_image_tag(can.photo.key) %>
+  <%= can.name %>
+  <%= can.abv %>
+  <%= can.brewery.name %>
+  <% end %>
+
+</div>
