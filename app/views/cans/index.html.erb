@@ -1,12 +1,26 @@
 <h1>Cans</h1>
 
+<div class="cans-container">
+    <% @cans.each do |can| %>
+  <div class="cans-card">
+      <%= link_to can_path(can)%>
+      <div class="can-img">
+         <%= cl_image_tag(can.photo.key, :transformation=>[{:width=>220, :crop=>"fill", :effect=>"saturation:50", :radius=>5, :responsive => true}]) %>
+      </div>
+    <div class="can-info">
+      <ul>
+        <li><%= can.name %></li>
+        <li><%= can.abv %></li>
+        <li><%= can.brewery.name %></li>
+      </ul>
 
-<% @cans.each do |can| %>
-  <%= link_to can_path(can) %>
-  <%= cl_image_tag(can.photo.key) %>
-  <%= can.name %>
-  <%= can.abv %>
-  <%= can.brewery.name %>
-  <% end %>
-
+     </div>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+

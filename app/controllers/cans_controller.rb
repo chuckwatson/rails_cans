@@ -5,15 +5,11 @@ class CansController < ApplicationController
 
   def create
     @can = Can.new(can_params)
-  end
-
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
+     if @can.save
+      redirect_to cans_path
+     else
+    render :new
+    end
   end
 
   def index
@@ -25,6 +21,6 @@ class CansController < ApplicationController
 
 
   def can_params
-    params.require(:can).permit(:name, :abv)
+    params.require(:can).permit(:name, :abv, :photo, :brewery_id, :hop_id)
   end
 end

@@ -6,8 +6,9 @@
 <%= f.text_field :name %>
 <%= f.label :abv, "abv %" %>
 <%= f.number_field :abv %>
-<%= f.association :brewery %>
+<%= f.association :brewery, label_method: :name %>
 <%= f.association :hop %>
 <%= f.input :photo, as: :file %>
 <%= f.button :submit %>
+
 <% end %>
